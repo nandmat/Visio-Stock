@@ -20,6 +20,8 @@ Route::prefix('/')->group(function(){
     Route::get('/', [AuthController::class, 'view'])->name('login.index');
     Route::post('/', [AuthController::class, 'login'])->name('login.auth');
     Route::get('/dashboard', [DashboardController::class, 'view'])->name('dashboard')->middleware('auth');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+    Route::get('/usuario/cadastrar_vendedor', [DashboardController::class, 'viewCadastroVendedor'])->name('cadastrar_vendedor')->middleware('auth');
 });
 
 

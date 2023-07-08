@@ -110,6 +110,35 @@ class DatabaseSeeder extends Seeder
             'code' => 'deletar_vendedores'
         ]);
 
+        $userPermissao->query()->create([
+            'user_id' => $nanderson->id,
+            'permissao_id' => $permissao_cadastro_vendedor->id
+        ]);
+
+        $userPermissao->query()->create([
+            'user_id' => $nanderson->id,
+            'permissao_id' => $permissao_deletar_vendedor->id
+        ]);
+
+        $userPermissao->query()->create([
+            'user_id' => $aguiar->id,
+            'permissao_id' => $permissao_cadastro_produtos->id
+        ]);
+
+        $userPermissao->query()->create([
+            'user_id' => $aguiar->id,
+            'permissao_id' => $permissao_cadastro_produtos->id
+        ]);
+
+        $userPermissao->query()->create([
+            'user_id' => $aguiar->id,
+            'permissao_id' => $permissao_consulta_produtos->id
+        ]);
+
+        $userPermissao->query()->create([
+            'user_id' => $aguiar->id,
+            'permissao_id' => $permissao_saida_produtos->id
+        ]);
 
     }
 }

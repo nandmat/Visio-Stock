@@ -7,19 +7,19 @@
         </a>
       </li><!-- End Search Icon-->
       <li class="nav-item dropdown">
-      @include('base._partials.notifications')
+      @include('_partials.notifications')
       </li>
       <!-- End Notification Nav -->
 
       <li class="nav-item dropdown">
 
-        @include('base._partials.messages')
+        @include('_partials.messages')
 
       </li><!-- End Messages Nav -->
 
       <li class="nav-item dropdown pe-3">
 
-          @include('base._partials.profile-nav')
+          @include('_partials.profile-nav')
 
       </li><!-- End Profile Nav -->
 

@@ -1,13 +1,13 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link " href="{}">
+      <a class="nav-link " href="{{ route('dashboard') }}">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
     </li><!-- End Dashboard Nav -->
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
@@ -83,9 +83,9 @@
           </a>
         </li>
       </ul>
-    </li><!-- End Components Nav -->
+    </li><!-- End Components Nav --> --}}
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
@@ -111,27 +111,32 @@
           </a>
         </li>
       </ul>
-    </li><!-- End Forms Nav -->
+    </li><!-- End Forms Nav --> --}}
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+      <a class="nav-link collapsed" data-bs-target="#cadastros-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-layout-text-window-reverse"></i><span>Usuários</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <ul id="cadastros-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="tables-general.html">
-            <i class="bi bi-circle"></i><span>General Tables</span>
+          <a href="{{ route('cadastrar_vendedor') }}">
+            <i class="bi bi-circle"></i><span>Cadastrar Vendedor</span>
           </a>
         </li>
         <li>
           <a href="tables-data.html">
-            <i class="bi bi-circle"></i><span>Data Tables</span>
+            <i class="bi bi-circle"></i><span>Cadastrar Administrador</span>
           </a>
         </li>
+        <li>
+            <a href="tables-data.html">
+              <i class="bi bi-circle"></i><span>Gerenciamento de Permissões</span>
+            </a>
+          </li>
       </ul>
     </li><!-- End Tables Nav -->
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
@@ -152,9 +157,9 @@
           </a>
         </li>
       </ul>
-    </li><!-- End Charts Nav -->
+    </li><!-- End Charts Nav --> --}}
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
@@ -175,9 +180,9 @@
           </a>
         </li>
       </ul>
-    </li><!-- End Icons Nav -->
+    </li><!-- End Icons Nav --> --}}
 
-    <li class="nav-heading">Pages</li>
+    {{-- <li class="nav-heading">Pages</li>
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="users-profile.html">
@@ -226,6 +231,6 @@
         <i class="bi bi-file-earmark"></i>
         <span>Blank</span>
       </a>
-    </li><!-- End Blank Page Nav -->
+    </li><!-- End Blank Page Nav --> --}}
 
   </ul>

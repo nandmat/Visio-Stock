@@ -9,6 +9,6 @@
     </div><!-- End Logo -->
 
     <!--Navbar -->
-    @include('base.components.nav')
+    @include('components.nav')
 
   </header><!-- End Header -->

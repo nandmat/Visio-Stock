@@ -11,4 +11,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.index');
     }
+
+    public function viewCadastroVendedor()
+    {
+        return view('dashboard.new-vendedor-edit');
+    }
 }

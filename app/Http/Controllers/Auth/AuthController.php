@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Repositories\AuthRepository;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -33,7 +34,7 @@ class AuthController extends Controller
                 if ($this->authRepository->auth($request)) {
                     $request->session()->regenerate();
 
-                    return redirect()->intended('dashboard');
+                    return redirect()->route('dashboard');
                 }
 
                 return redirect()->back()->with('danger', 'Email ou senha inválido!');
@@ -42,5 +43,14 @@ class AuthController extends Controller
 
             return $e->getMessage();
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login.index');
     }
 }
