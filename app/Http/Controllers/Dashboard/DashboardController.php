@@ -14,6 +14,17 @@ class DashboardController extends Controller
 
     public function viewCadastroVendedor()
     {
-        return view('dashboard.new-vendedor-edit');
+        $filiais = [
+            'Imperatriz - Maranhão',
+            'Salvador - Bahia',
+            'Terezina - Piauí',
+            'Goiânia - Goiás'
+        ];
+
+        $perfil = 1;
+        return view('dashboard.new-vendedor-edit', [
+            'filiais' => json_encode($filiais),
+            'perfil' => $perfil
+        ]);
     }
 }

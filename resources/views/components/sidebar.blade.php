@@ -114,7 +114,7 @@
     </li><!-- End Forms Nav --> --}}
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#cadastros-nav" data-bs-toggle="collapse" href="#">
+      <a class="nav-link collapsed" data-bs-target="#cadastros-nav" data-bs-toggle="collapse" >
         <i class="bi bi-layout-text-window-reverse"></i><span>Usuários</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="cadastros-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">

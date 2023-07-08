@@ -9,32 +9,42 @@
     </div>
     <section class="section">
       <div class="row">
+
         <div class="col-lg-12">
 
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Multi Columns Form</h5>
+              <h5 class="card-title"></h5>
 
               <!-- Multi Columns Form -->
-              <form class="row g-3">
+              <form class="row g-3" action="" method="post">
+                @csrf
+                <input type="hidden" value="{{ $perfil }}" name="perfil">
                 <div class="col-md-12">
-                  <label for="inputName5" class="form-label">Your Name</label>
-                  <input type="text" class="form-control" id="inputName5">
+                  <label for="inputName5" class="form-label">Nome:</label>
+                  <input type="text" class="form-control" id="inputName5" name="name">
                 </div>
                 <div class="col-md-6">
                   <label for="inputEmail5" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail5">
+                  <input type="email" class="form-control" id="inputEmail5" name="email">
                 </div>
-                <div class="col-md-6">
-                  <label for="inputPassword5" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputPassword5">
+                <div class="col-6">
+                  <label for="inputAddress5" class="form-label">CPF</label>
+                  <input type="number" max="11" class="form-control" id="inputAddres5s" placeholder="Ex: 12345678910">
                 </div>
-                <div class="col-12">
-                  <label for="inputAddress5" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="1234 Main St">
-                </div>
-                <div class="col-12">
+
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">Filial</label>
+                    <select id="inputState" class="form-select">
+                      {{-- <option selected>Choose...</option> --}}
+                      @foreach (json_decode($filiais) as $value )
+                        <option value="{{ $value }}">{{ $value}}</option>
+                      @endforeach
+
+                    </select>
+                  </div>
+                {{-- <div class="col-6">
                   <label for="inputAddress2" class="form-label">Address 2</label>
                   <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
                 </div>
@@ -59,8 +69,8 @@
                     <label class="form-check-label" for="gridCheck">
                       Check me out
                     </label>
-                  </div>
-                </div>
+                  </div> --}}
+                {{-- </div> --}}
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Cadastrar</button>
                   <button type="reset" class="btn btn-secondary">Resetar</button>

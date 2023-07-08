@@ -8,10 +8,17 @@ use Illuminate\Http\Request;
 class UserRepository
 {
     private $modelUser;
+    private $vendedorRepository;
 
     public function __construct()
     {
         $this->modelUser = $this->getUser();
+        $this->vendedorRepository = $this->getVendedorRepository();
+    }
+
+    private function getVendedorRepository()
+    {
+        return new VendedorRepository;
     }
 
     private function getUser()
@@ -36,9 +43,19 @@ class UserRepository
     {
         $data['password'] = bcrypt($data['cpf']);
 
-        $user = $this->modelUser->query()->create($data);
+        if($user = $this->modelUser->query()->create($data))
+        {
+            if($request->perfil == 1)
+            {
+                $vendedor = $this->vendedorRepository->store($data = [
+                    'user_id' => $user->id,
+                    'cpf' => $user->cpf,
+                    'name' => $user->name,
+                    'status' => 'active'
+                ]);
+            }
+        }
 
-        return $user;
     }
     }
 }
