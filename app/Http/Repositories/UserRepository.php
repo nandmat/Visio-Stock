@@ -2,6 +2,7 @@
 
 namespace App\Http\Repositories;
 
+use App\Http\Controllers\Auth\PermissaoController;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,11 +10,13 @@ class UserRepository
 {
     private $modelUser;
     private $vendedorRepository;
+    private $permissaoController;
 
     public function __construct()
     {
         $this->modelUser = $this->getUser();
         $this->vendedorRepository = $this->getVendedorRepository();
+        $this->permissaoController = new PermissaoController;
     }
 
     private function getVendedorRepository()
@@ -53,6 +56,8 @@ class UserRepository
                     'name' => $user->name,
                     'status' => 'active'
                 ]);
+
+                $this->permissaoController->permissoesInciaisVendedor($vendedor->user_id);
             }
         }
 
