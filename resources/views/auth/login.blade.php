@@ -1,97 +1,78 @@
-@extends('auth._partials.head-login')
-<main>
-    <div class="container">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Login - SB Admin</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content"
+            style="background-color: #b8b8b8">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8" >
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header">
 
-        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                                    </div>
+                                    <div class="card-header">
+                                        <h3 class="text-center font-weight-light my-4">Acesso</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" name="login" />
+                                                <label for="inputEmail">Email ou CPF</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                                                <label for="inputPassword">Senha</label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+                                                <label class="form-check-label" for="inputRememberPassword">Lembrar-me</label>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <a class="small" href="password.html">Esqueceu sua senha?</a>
+                                                <a class="btn btn-primary" href="index.html">Entrar</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="{{ route('login.register') }}">Ainda não é cadastrado? Clique aqui</a></div>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
 
-                        <div class="d-flex justify-content-center py-4">
-                            <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                <img src="assets/img/logo.png" alt="">
-                                <span class="d-none d-lg-block">Stock</span>
-                            </a>
-                        </div><!-- End Logo -->
-
-                        <div class="card mb-3">
-
-                            <div class="card-body">
-
-                                <div class="pt-4 pb-2">
-                                    <h5 class="card-title text-center pb-0 fs-4">Entrar</h5>
-                                    <p class="text-center small">Informe seu e-mail e senha de acesso.</p>
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
-                                    @if (session('danger'))
-                                        <div class="alert alert-danger">
-                                            {{ session('danger') }}
-                                        </div>
-                                    @endif
+                                    </div>
                                 </div>
-
-                                <form method="post" action="{{ route('login.auth') }}" class="row g-3 needs-validation"
-                                    novalidate>
-                                    @csrf
-                                    <div class="col-12">
-                                        <label for="yourUsername" class="form-label">Email</label>
-                                        <div class="input-group has-validation">
-                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                            <input type="email" name="email" class="form-control" id="yourEmail"
-                                                required>
-                                            <div class="invalid-feedback">Informe seu email, por favor.</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="yourPassword" class="form-label">Senha</label>
-                                        <input type="password" name="password" class="form-control" id="yourPassword"
-                                            required>
-                                        <div class="invalid-feedback">Informe sua senha!</div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember"
-                                                value="true" id="rememberMe">
-                                            <label class="form-check-label" for="rememberMe">Lembrar-me</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">Entrar</button>
-                                    </div>
-                                    {{-- <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
-                    </div> --}}
-                                </form>
-
                             </div>
                         </div>
-
-                        <div class="credits">
-                            <!-- All the links in the footer should remain intact. -->
-                            <!-- You can delete the links only if you purchased the pro version. -->
-                            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                            By <a href="https://bootstrapmade.com/">VisioIgnis</a>
-
-                        </div>
-
                     </div>
-                </div>
-
+                </main>
             </div>
-
-        </section>
-
-    </div>
-</main><!-- End #main -->
-
-@extends('auth._partials.end-login')
+            {{-- <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div> --}}
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

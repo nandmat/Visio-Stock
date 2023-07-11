@@ -31,36 +31,32 @@ class UserRepository
 
     public function store(Request $request)
     {
-       if($data = $request->validate(
-        [
-            'email' => ['required'],
-            'name' => ['required'],
-            'cpf' => ['required', 'max:11']
-        ],
-        [
-            'email.required' => 'Informe um email válido',
-            'name.required' => 'Informe um nome válido',
-            'cpf.required' => 'Informe um CPF válido'
-        ]
-    ))
-    {
-        $data['password'] = bcrypt($data['cpf']);
+        if ($data = $request->validate(
+            [
+                'email' => ['required'],
+                'name' => ['required'],
+                'cpf' => ['required', 'max:11']
+            ],
+            [
+                'email.required' => 'Informe um email válido',
+                'name.required' => 'Informe um nome válido',
+                'cpf.required' => 'Informe um CPF válido'
+            ]
+        )) {
+            $data['password'] = bcrypt($data['cpf']);
 
-        if($user = $this->modelUser->query()->create($data))
-        {
-            if($request->perfil == 1)
-            {
-                $vendedor = $this->vendedorRepository->store($data = [
-                    'user_id' => $user->id,
-                    'cpf' => $user->cpf,
-                    'name' => $user->name,
-                    'status' => 'active'
-                ]);
+            if ($user = $this->modelUser->query()->create($data)) {
+                if ($request->perfil == 1) {
+                    $vendedor = $this->vendedorRepository->store($data = [
+                        'user_id' => $user->id,
+                        'cpf' => $user->cpf,
+                        'name' => $user->name,
+                        'status' => 'active'
+                    ]);
 
-                $this->permissaoController->permissoesInciaisVendedor($vendedor->user_id);
+                    $this->permissaoController->permissoesInciaisVendedor($vendedor->user_id);
+                }
             }
         }
-
-    }
     }
 }

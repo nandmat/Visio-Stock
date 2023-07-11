@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Auth
+
 Route::prefix('/')->group(function(){
-    Route::get('/', [AuthController::class, 'view'])->name('login.index');
-    Route::post('/', [AuthController::class, 'login'])->name('login.auth');
+    Route::get('/', function(){return view('leading');});
+    Route::get('/login', [AuthController::class, 'view'])->name('login.index');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.auth');
+    Route::get('/register', [AuthController::class, 'register'])->name('login.register');
     Route::get('/dashboard', [DashboardController::class, 'view'])->name('dashboard')->middleware('auth');
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-    Route::get('/usuario/cadastrar_vendedor', [DashboardController::class, 'viewCadastroVendedor'])->name('cadastrar_vendedor')->middleware('auth');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');;
 });
 
 
-// Route::middleware('auth')->group(function(){
-//     Route::get('/dashboard', [DashboardController::class, 'view'])->name('dashboard');
-// });
+Route::middleware('auth')->prefix('/user')->group(function(){
+    Route::get('/usuario/cadastrar_vendedor', [DashboardController::class, 'viewCadastroVendedor'])->name('cadastrar_vendedor');
+});
